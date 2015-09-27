@@ -45,48 +45,33 @@ public class Compte {
     }
 
 
-    @Override
-    public String toString() {
-        return "le Compte n: " + numCompte + " Son solde est de : " + solde;
-    }
 
     public double calculInteret(int taux) {
         return (solde * taux / 100);
-
     }
 
-    InputStreamReader lecture = new InputStreamReader(System.in);
-    BufferedReader clavier = new BufferedReader(lecture);
-
-    /***
-     * @param montant
-     * @param choice
-     */
-    public void modification(double montant, int choice) throws IOException {
+    @Override
+    public String toString() {
+        return "le Compte n: " + numCompte + " Son solde est de : " + (solde-calculInteret());
+    }
 
 
-        int choix = Integer.parseInt(clavier.readLine());
-        switch (choix) {
-            //ajout
-            case 1:
-                solde += montant;
-                break;
-            //retirer
-            case 2:
-                solde -= montant;
-                break;
+
+
+    public void augmenter(double montant){
+        solde+=montant;
+    }
+
+    public double retirer(double montant){
+        if(solde>=montant){
+            return solde-=montant;
         }
-
+        else
+            return -1;
     }
-
-//    public void augmenter(double montant){
-//        solde
-//    }
 
 
     double calculInteret() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-
 }

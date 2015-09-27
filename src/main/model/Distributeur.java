@@ -9,11 +9,15 @@ public class Distributeur {
      * ajout
      * retire
      */
-    static void menu(byte choix){
-        switch (choix){
-            case 1:
-                System.out.println("");
+    static void menu(byte choix) {
+        do {
+            switch (choix) {
+                case 1:
+                    System.out.println("" + Compte);
+                    break;
+            }
         }
     }
+    while(choix!=0);
 
 }
